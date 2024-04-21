@@ -1,0 +1,19 @@
+# Ignore everything
+#
+#*
+#
+## Then choose, what to include.
+#
+#!bin/
+#bin/**
+#!bin/bkup
+#!bin/git-fix-lfs-pointer-hack
+#!bin/screen-ocr
+#!bin/startdev
+#!bin/toggle-screen-recorder
+#
+#!pictures/
+#pictures/**
+#!pictures/wallpapers/
+#!pictures/wallpapers/**
+#

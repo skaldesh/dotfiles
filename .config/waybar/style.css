@@ -1,0 +1,96 @@
+/* Colors from: https://coolors.co/76604b */
+
+* {
+	font-size: 14px;
+	font-family: monospace;
+}
+
+/* Workaround for https://github.com/Alexays/Waybar/issues/1741 */
+button {
+  all: unset;
+}
+label {
+  all: unset;
+}
+/* Workaround end */
+
+window.eDP-1 * {
+	font-size: 14px;
+}
+
+window#waybar {
+	color: #ffffff;
+    background: linear-gradient(0deg, rgba(20,20,20,0.2) 0%, rgba(20,20,20,0.3) 100%); 
+}
+
+#clock { background: #76604b; }
+
+#battery { background: #6E5946; }
+
+#temperature.cpu { background: #655241; }
+
+#cpu { background: #5D4C3B; }
+
+#memory { background: #544536; }
+
+#disk { background: #4C3E31; }
+
+#pulseaudio.out { background: #44372B; }
+
+#pulseaudio.in { background: #3B3026; }
+
+#network.ethernet { background: #332920; }
+
+#network.wifi { background: #2A221B; }
+
+#mode { 
+	background: #76604b; 
+	font-weight: bold;
+}
+
+#workspaces button {
+	background: rgba(0, 0, 0, 0.2);
+	color: #ffffff;
+	padding: 4px 10px;
+	border-radius: 0;
+	font-weight: bold;
+}
+#workspaces button.focused {
+	background: #76604b;
+}
+#workspaces button:hover {
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+#workspaces button:hover {
+	background: #4C3E31;
+}
+
+#temperature.critical {
+	background: red;
+}
+#battery.warning {
+	background: yellow;
+	color: black;
+}
+#battery.critical {
+	background: red;
+}
+#battery.charging.good,
+#battery.charging.warning,
+#battery.charging.critical {
+	background: green;
+	color: white;
+}
+
+#clock, #network, #pulseaudio, #memory, #mode,
+#cpu, #temperature, #battery, #disk {
+	padding: 0 10px;
+	margin: 1px 2px;
+}
+
+#custom-recorder {
+	padding: 0 10px;
+	color: white;
+	background: red
+}

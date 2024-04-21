@@ -1,0 +1,33 @@
+### Wofi configuration
+### Key value pairs in snakecase.
+### See wofi(5) for more information.
+
+style=/home/skaldesh/.config/wofi/style.css
+
+color=/home/skaldesh/.config/wofi/colors
+
+show=drun
+
+width=15%
+
+height=30%
+
+xoffset=-20
+
+yoffset=2
+
+prompt=Search...
+
+term=termite
+
+hide_scroll=true
+
+insensitive=true
+
+matching=contains
+
+location=3
+
+dynamic_lines=false
+
+layer=overlay

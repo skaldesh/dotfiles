@@ -1,0 +1,363 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+#################
+### Autostart ###
+#################
+
+# Set GTK theme.
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+	gsettings set $gnome-schema gtk-theme 'Equilux'
+	gsettings set $gnome-schema icon-theme 'Adwaita'
+	gsettings set $gnome-schema color-scheme prefer-dark
+	#gsettings set $gnome-schema cursor-theme 'Your cursor Theme'
+}
+
+# Use gnome polkit authentication agent for password prompt.
+exec_always {
+	/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+}
+
+# Enable notifications.
+exec_always {
+	mako \
+		--ignore-timeout 1 \
+		--default-timeout 5000 \
+		--background-color $colPrim \
+		--border-color $colPrim
+}
+
+# Needed for xdg-deskop-portal-wlr.
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+# Enable AppArmor notifications.
+exec aa-notify --poll --since-days 1 --wait 60 --file /var/log/audit/audit.log
+
+# Start swayidle to lock the screen before suspend.
+exec swayidle -w before-sleep '$swaylock'
+
+#################
+### Variables ###
+#################
+
+# Colors.
+set $colPrim "#a81800"
+
+# Mod key. Use Mod1 for Alt.
+set $mod Mod1
+
+# Home row direction keys.
+set $up g
+set $right t
+set $down r
+set $left n
+	
+# Terminal emulator.
+set $term alacritty
+	
+# Application launcher.
+set $menu wofi --config $HOME/.config/wofi/config
+
+# Volume.
+## Toggle output mute.
+set $toggleMuteOutVol "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+
+## Raise output.
+set $raiseOutVol "pactl set-sink-mute @DEFAULT_SINK@ false ; \
+	pactl set-sink-volume @DEFAULT_SINK@ +5%"
+	
+## Lower output.
+set $lowerOutVol "pactl set-sink-mute @DEFAULT_SINK@ false ; \
+	pactl set-sink-volume @DEFAULT_SINK@ -5%"
+	
+## Toggle input mute.
+set $toggleMuteInVol "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+
+## Raise input volume.
+set $raiseInVol "pactl set-source-mute @DEFAULT_SOURCE@ false ; \
+	pactl set-source-volume @DEFAULT_SOURCE@ +5%"
+
+## Lower input volume.
+set $lowerInVol "pactl set-source-mute @DEFAULT_SOURCE@ false ; \
+	pactl set-source-volume @DEFAULT_SOURCE@ -5%"
+
+# Brightness.
+## Increase laptop screen.
+set $incLapBright brightnessctl set +10%
+
+## Decrease laptop screen.
+set $decLapBright brightnessctl set 10%-
+	
+# Toggle bluetooth.
+#set $toggleBluetooth ""
+
+# Laptop display identifier.
+set $dlap eDP-1
+
+# External display HDMI identifier.
+set $dext DP-3
+
+# Swaylock.
+set $swaylock swaylock \
+	--ignore-empty-password \
+	--image /home/skaldesh/pictures/wallpapers/golang.png \
+	--scaling fit \
+	--show-failed-attempts \
+	--show-keyboard-layout \
+	--indicator-caps-lock
+
+########################
+### Default Settings ###
+########################
+ 
+# Give each window a border.
+default_border pixel 3
+
+# Give each window a margin to other windows.
+gaps inner 10
+
+# Make border around focused view red.
+client.focused $colPrim #285577 #ffffff #ff3416 $colPrim
+
+# Make border around focused inactive view black.
+client.focused_inactive #333333 #5f676a #ffffff #484e50 #000000
+
+# Disable laptop screen if lid is closed.
+bindswitch --locked lid:on output $dlap disable
+bindswitch --locked lid:off output $dlap enable
+
+############################
+### Output configuration ###
+############################
+
+# Output information: swaymsg -t get_outputs
+
+# Background wallpaper.
+# Should be configured in .config/sway/config.d/
+# E.g.: output * bg /path/to/image.jpg fill
+
+# Display arrangement.
+# Should be configured in .config/sway/config.d/	
+# E.g.: output $dlap position 1920 1080 mode 1920x1080@60Hz scale 1
+	
+### External display.
+output $dext scale 1
+
+###########################
+### Input configuration ###
+###########################
+
+# Input information: swaymsg -t get_inputs
+
+# Keyboard layout. Default is Neo, fallback is german. Can be toggle by pressing both Ctrl keys.
+input "type:keyboard" {
+    repeat_delay 150
+    repeat_rate 38
+    xkb_layout de,de
+    xkb_variant neo,nodeadkeys
+    xkb_options grp:ctrls_toggle
+}
+
+# All mouse-like devices.
+input "type:pointer" {
+    scroll_factor 2
+}
+
+### Map touch input to correct output.
+input "9589:1:Weida_Hi-Tech_CoolTouch_System" map_to_output HDMI-A-1
+
+##############
+### Basics ###
+##############
+
+# Start a terminal.
+bindsym $mod+Return exec $term
+
+# Kill focused window.
+bindsym $mod+Shift+q kill
+
+# Start your launcher.
+bindsym $mod+d exec $menu
+
+# Lock the screen and start swayidle to turn displays off after 5 seconds.
+# Swayidle is automatically killed, once unlocked.
+bindsym $mod+Ctrl+l exec "$(swayidle -w timeout 10 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' & $swaylock ; pkill swayidle)"
+
+# Toggle mute output volume.
+bindsym XF86AudioMute exec $toggleMuteOutVol
+# Raise output volume.
+bindsym XF86AudioRaiseVolume exec $raiseOutVol
+# Lower output volume.
+bindsym XF86AudioLowerVolume exec $lowerOutVol
+# Toggle mute input volume.
+bindsym XF86AudioMicMute exec $toggleMuteInVol
+bindsym --release XF86AudioPlay exec $toggleMuteInVol
+# Raise input volume.
+bindsym --release XF86AudioNext exec $raiseInVol
+# Lower input volume.
+bindsym --release XF86AudioPrev exec $lowerInVol
+# Increase laptop screen brightness.
+bindsym XF86MonBrightnessUp exec $incLapBright
+# Decrease laptop screen brightness.
+bindsym XF86MonBrightnessDown exec $decLapBright
+# Toggle bluetooth.
+bindsym XF86Bluetooth exec $toggleBluetooth
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Reload the configuration file.
+bindsym $mod+Shift+d reload
+
+# Exit sway (logs you out of your wayland session).
+bindsym $mod+Shift+e exit
+    
+#####################
+### Moving around ###
+#####################
+
+# Move your focus around.
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
+
+# Move the focused window with the same, but add Shift.
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+    
+##################
+### Workspaces ###
+##################
+
+# Switch to workspace.
+bindsym $mod+x workspace 1
+bindsym $mod+v workspace 2
+bindsym $mod+l workspace 3
+bindsym $mod+c workspace 4
+bindsym $mod+w workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+5 workspace 7
+bindsym $mod+4 workspace 8
+
+# Move focused container to workspace.
+bindsym $mod+Shift+x move container to workspace 1
+bindsym $mod+Shift+v move container to workspace 2
+bindsym $mod+Shift+l move container to workspace 3
+bindsym $mod+Shift+c move container to workspace 4
+bindsym $mod+Shift+w move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+5 move container to workspace 7
+bindsym $mod+Shift+4 move container to workspace 8
+    
+####################
+### Layout stuff ###
+####################
+
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym $mod+b splitt
+
+# Switch the current container between different layout styles.
+#bindsym $mod+s layout stacking
+bindsym $mod+y layout tabbed
+bindsym $mod+e layout default
+
+# Make the current focus fullscreen.
+bindsym $mod+f fullscreen
+
+# Swap focus between the tiling area and the floating area.
+bindsym $mod+space focus mode_toggle
+
+# Toggle the current view between floating and tiled.
+bindsym $mod+o floating toggle
+
+# move focus to the parent container.
+bindsym $mod+a focus parent
+    
+##################
+### Scratchpad ###
+##################
+
+# Move the currently focused window to the scratchpad.
+bindsym $mod+Shift+k move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+k scratchpad show
+    
+###########################
+### Resizing containers ###
+###########################
+
+mode "resize" {
+    bindsym $up    resize shrink height 10 px or 10 ppt
+    bindsym $right resize grow   width  10 px or 10 ppt
+	bindsym $down  resize grow   height 10 px or 10 ppt
+	bindsym $left  resize shrink width  10 px or 10 ppt
+
+	# Set window's dimensions to 1920x1080.
+	bindsym f resize set width 1920 px height 1080 px
+
+	# Return to default mode.
+	bindsym Backspace mode "default"
+}
+bindsym $mod+i mode "resize"
+
+##################
+### Screenshot ###
+##################
+
+mode "screencapture" {
+    set $screenrecorder "toggle-screen-recorder"
+
+    # Select area for the screenshot and save it to the screenshots dir.
+    bindsym l exec grim -g \"$(slurp)" ~/pictures/screenshots/$(date +'%Y-%m-%d-%H%M%S.png')
+
+	# Select area for the screenshot and save it to the clipboard.
+    bindsym c exec grim -g \"$(slurp)" - | wl-copy
+
+    # Select area for a screenshot and run OCR on it.
+    bindsym w exec screen-ocr
+
+	# Take a screenshot of the current display.
+    bindsym v exec "grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') /home/skaldesh/pictures/screenshots/$(date +'%Y-%m-%d-%H%M%S.png')"
+
+	# Take screen recording of the current display.
+    bindsym h exec $screenrecorder
+
+	# Select area for the screen recording.
+    bindsym g exec $screenrecorder -g \"$(slurp)"
+
+    # Return to default mode.
+    bindsym Backspace mode "default"
+}
+bindsym $mod+s mode "screencapture"
+
+##################
+### Status Bar ###
+##################
+
+# Information: man 5 sway-bar
+
+bar {
+    swaybar_command waybar
+}
+
+###################
+### Base Config ###
+###################
+
+include /etc/sway/config.d/*
+include ~/.config/sway/config.d/*

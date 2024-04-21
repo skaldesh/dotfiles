@@ -1,0 +1,102 @@
+{
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.autoIndent": "advanced"
+    },
+
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "window.titleBarStyle": "custom",
+    "window.menuBarVisibility": "compact",
+    "window.zoomLevel": 2,
+    "workbench.iconTheme": "simple-icons",
+    "go.toolsGopath": "/home/skaldesh/go",
+    "go.useLanguageServer": true,
+    "go.addTags": {
+        "tags": "json",
+        "options": "",
+        "promptForTags": true,
+        "transform": "camelcase"
+    },
+    "[go]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+            "source.fixAll": "explicit"
+        },
+        // Optional: Disable snippets, as they conflict with completion ranking.
+        "editor.snippetSuggestions": "inline",
+    },
+    "[go.mod]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+    },
+    "gopls": {
+         // Add parameter placeholders when completing a function.
+        "usePlaceholders": true,
+    
+        // If true, enable additional analyses with staticcheck.
+        // Warning: This will significantly increase memory usage.
+        "staticcheck": false,
+
+        "formatting.gofumpt": true,
+
+        "analyses": {
+            "fillreturns": true,        
+            "nonewvars": true,
+        }
+    },
+    "editor.fontSize": 13,
+    "search.useIgnoreFiles": false,
+    "explorer.confirmDragAndDrop": false,
+    "keyboard.dispatch": "keyCode",
+    "window.openFoldersInNewWindow": "off",
+    "npm.fetchOnlinePackageInfo": false,
+    "workbench.enableExperiments": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "update.mode": "start",
+    "terminal.integrated.tabs.enabled": true,
+    "workbench.editorAssociations": {
+        "*.html": "default",
+        "*.onnx": "hexEditor.hexedit"
+    },
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": "off"
+    },
+    "editor.wordWrapColumn": 130,
+    "editor.wrappingIndent": "deepIndent",
+    "telemetry.telemetryLevel": "off",
+    "zls.warn_style": true,
+    "zls.enable_unused_variable_warnings": true,
+    "zls.enable_snippets": true,
+    "zls.path": "/usr/local/bin/zls",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "redhat.telemetry.enabled": false,
+    "go.diagnostic.vulncheck": "Imports",
+    "git.openRepositoryInParentFolders": "never",
+    "workbench.editor.splitInGroupLayout": "vertical",
+    "editor.minimap.enabled": false,
+    "zig.path": "",
+    "zig.zls.path": "/home/skaldesh/.config/Code - OSS/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
+    "zig.initialSetupDone": true,
+    "licenser.license": "MIT",
+    "licenser.projectName": "Qube",
+    "licenser.author": "skaldesh",
+    "clangd.path": "/home/skaldesh/.config/Code - OSS/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/17.0.3/clangd_17.0.3/bin/clangd",
+    "explorer.confirmDelete": false,
+}

@@ -1,0 +1,58 @@
+[alias]
+	ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
+	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
+	lds = log --pretty=format:\"%C(yellow)%h\\\\ %ad%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --date=short
+	ld = log --pretty=format:\"%C(yellow)%h\\\\ %ad%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --date=relative
+	lg = !"git lg1"
+	lg1a = !"git lg1 --all"
+	lg2a = !"git lg2 --all"
+	lg3a = !"git lg3 --all"
+	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+	lg3 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'	
+	fl = log -u
+	la = !git config -l | grep alias | cut -c 7-
+	co = checkout
+	cob = checkout -b
+	st = status -s -b
+	cm = commit
+	puosucb = !git push origin --set-upstream $(git symbolic-ref --short HEAD)
+	puosu = push origin --set-upstream
+	ricb = !git rebase -i $(git symbolic-ref --short HEAD)
+	fe = fetch
+	pu = push
+	bd = branch -d
+	p = pull
+	cue = !git config user.email
+	cued = !git config user.email "sebastian@desertbit.com"
+	cuew = !git config user.email "sebastian@wahtari.io"
+        cun = !git config user.name "Sebastian Borchers"
+	puod = push origin --delete
+	prune-branches = !git fetch --prune && git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D
+	put = push --tag
+	bdf = branch -D
+	signd = git config user.signingkey 31F8D0465BEA187E
+	c = cm -am
+	sm = submodule
+	smu = submodule update
+	bb = !git for-each-ref --color --sort=-committerdate --format=$'%(color:red)%(ahead-behind:HEAD)\t%(color:blue)%(refname:short)\t%(color:yellow)%(committerdate:relative)\t%(color:default)%(describe)' refs/heads/ --no-merged | sed 's/ /\t/' | column --separator=$'\t' --table --table-columns='Ahead,Behind,Branch Name,Last Commit,Description'
+[core]
+	editor = micro
+[http]
+	cookiefile = /home/skaldesh/.gitcookies
+[url "ssh://git@code.desertbit.com"]
+	insteadOf = https://code.desertbit.com
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[pull]
+	ff = true
+	rebase = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = master
+[rerere]
+	enabled = true

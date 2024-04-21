@@ -1,0 +1,24 @@
+/* Wofi CSS stylesheet */
+/* See wofi(5) and wofi(7) for more information. */
+
+* {
+	font-family: "Droid Sans Mono";
+	font-size: 11pt;
+}
+
+#outer-box {
+	background: --wofi-color2;
+}
+
+#input {
+	background: --wofi-color3;
+	border: 2px solid --wofi-color0;
+}
+
+#entry:selected {
+	background: --wofi-color0;
+}
+
+#text:selected {
+	font-weight: 900;
+}
