@@ -141,7 +141,7 @@ bindswitch --locked lid:off output $dlap enable
 # E.g.: output * bg /path/to/image.jpg fill
 
 # Display arrangement.
-# Should be configured in .config/sway/config.d/	
+# Should be configured in .config/sway/config.d/
 # E.g.: output $dlap position 1920 1080 mode 1920x1080@60Hz scale 1
 	
 ### External display.
@@ -231,9 +231,9 @@ bindsym $mod+$up    focus up
 bindsym $mod+$right focus right
 
 # Move the focused window with the same, but add Shift.
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
 bindsym $mod+Shift+$right move right
     
 ##################

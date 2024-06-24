@@ -13,7 +13,6 @@
     "window.titleBarStyle": "custom",
     "window.menuBarVisibility": "compact",
     "window.zoomLevel": 2,
-    "workbench.iconTheme": "simple-icons",
     "go.toolsGopath": "/home/skaldesh/go",
     "go.useLanguageServer": true,
     "go.addTags": {
@@ -99,4 +98,5 @@
     "licenser.author": "skaldesh",
     "clangd.path": "/home/skaldesh/.config/Code - OSS/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/17.0.3/clangd_17.0.3/bin/clangd",
     "explorer.confirmDelete": false,
+    "workbench.iconTheme": "simple-icons",
 }
