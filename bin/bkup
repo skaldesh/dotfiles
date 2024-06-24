@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# The repo must be writable by your user.
+# Substitute the variables with your locations.
+
+REPO="/mnt/backup/restic-backup"
+INCLUDE="/home/skaldesh/app/restic/includes.txt"
+EXCLUDE="/home/skaldesh/app/restic/excludes.txt"
+PASS="sudo -H -u skaldesh bash -c 'gopass show --password misc/backup_restic'"
+TAG="bkup-script"
+
+# Create lists of installed packages.
+# Non-foreign (e.g. AUR) packages.
+pacman -Qqetn > /tmp/pkglist.txt
+# Foreign packages.
+pacman -Qqem > /tmp/pkglistforeign.txt
+
+# Backup with restic
+sudo restic \
+	--repo "${REPO}" \
+	--password-command="${PASS}" \
+	backup \
+		--verbose \
+		--tag "${TAG}" \
+		--exclude-caches \
+		--exclude-file="${EXCLUDE}" \
+		--files-from="${INCLUDE}" \
+                /tmp/pkglist.txt /tmp/pkglistforeign.txt
+
+# Check the integrity of the repository
+sudo restic \
+	--repo "${REPO}" \
+	--password-command="${PASS}" \
+	check
+
+# Prune snapshots.
+sudo restic \
+	--repo "${REPO}" \
+	--password-command="${PASS}" \
+	forget \
+		--keep-last 3 \
+		--group-by tags \
+		--prune
+
+rm -f /tmp/pkglist.txt /tmp/pkglistforeign.txt

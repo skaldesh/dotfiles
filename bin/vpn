@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo openvpn "/etc/openvpn/configs/${1}.conf"

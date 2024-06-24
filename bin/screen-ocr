@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e
+
+IMG="/tmp/screen-ocr-img-tmp"
+
+# Cleanup on exit.
+trap "rm -f ${IMG}*" EXIT
+
+# Select screenshot and save it.
+grim -g "$(slurp)" "${IMG}.png"
+
+# Scale up to increase detection rate.
+mogrify -modulate 100,0 -resize 400% "${IMG}.png"
+
+# OCR
+tesseract "${IMG}.png" "${IMG}" &> /dev/null
+wl-copy < "${IMG}.txt"
+notify-send "Text copied" "$(cat ${IMG}.txt)"
+
+exit

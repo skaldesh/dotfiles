@@ -1,2 +1,5 @@
 .config/sway/config.d/**
 !.config/sway/config.d/.gitkeep
+
+bin/cjdns-ext
+bin/ledger-live
