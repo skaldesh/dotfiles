@@ -1,0 +1,136 @@
+{
+	"battery": {
+		"states": {
+			"good": 80,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity:02}%",
+		"format-charging": " {capacity:02}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	
+	"clock": {
+		"format": " {:%a, %d-%m-%y %H:%M}"
+	},
+
+	"cpu": {
+		"interval": 2,
+		"format": " {usage:02}% {max_frequency}GHz"
+	},
+
+	"custom/recorder": {
+		"format": "",
+		"return-type": "json",
+		"interval": 1,
+		"exec": "echo '{\"class\": \"recording\"}'",
+		"exec-if": "pgrep wf-recorder"
+	},
+
+    "disk": {
+   		"interval": 5,
+   		"format": " {percentage_used:02}%",
+   		"path": "/"
+   	},
+
+   	"memory": {
+		"interval": 2,
+		"format": " {percentage:02}%"
+	},
+
+	"network#ethernet": {
+		"interface": "enp*",
+		"interval": 10,
+		"format-ethernet": " {ipaddr}",
+		"format-disconnected": " x",
+		"tooltip": false,
+		//"tooltip-format-ethernet": "{ipaddr}",
+		//"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50
+	},
+
+	"network#wifi": {
+		"interface": "w*",
+		"interval": 10,
+		"format-wifi": " {essid} ({signalStrength}%)",
+		"format-disconnected": " x",
+		"tooltip-format-wifi": "{essid} {ipaddr} ({signalStrength}%)",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50
+	},
+
+	"privacy": {
+		"icon-spacing": 4,
+		"icon-size": 18,
+		"transition-duration": 250,
+		"modules": [
+			{
+				"type": "screenshare",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-out",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-in",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			}
+		]
+	},
+
+	"pulseaudio#in": {
+		"format": "{format_source}",
+		"format-source": " {volume:02}%",
+		"format-bluetooth": "{icon} {volume:02}%",
+		"format-source-muted": "",
+		"scroll-step": 5,
+		"on-click": "pavucontrol"
+	},
+
+	"pulseaudio#out": {
+		"format": "{icon} {volume:02}%",
+		"format-bluetooth": "{icon} {volume:02}% ",
+		"format-muted": "",
+		"format-icons": {
+			"headphones": "",
+			"default": [
+				"",
+				"",
+				""
+			]
+		},
+		"scroll-step": 5,
+		"on-click": "pavucontrol"
+	},	
+
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"format": "{name}"
+	},
+	
+	"sway/mode": {
+		"format": "{}",
+		"max-length": 50
+	},
+
+	"temperature#cpu": {
+		"critical-threshold": 80,
+		"interval": 2,
+		"format": " {temperatureC:02}°C"
+	},
+	
+	"tray": {
+		"icon-size": 20,
+		"spacing": 5
+	}
+}
