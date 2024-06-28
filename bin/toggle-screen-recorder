@@ -3,12 +3,11 @@
 pid=`pgrep wf-recorder`
 status=$?
 
-name="$(date +'%Y-%m-%d-%H%M%S.gif')"
+name="$(date +'%Y-%m-%d-%H%M%S.mp4')"
 
 if [ $status != 0 ]; then 
 	wf-recorder \
 		-f ~/videos/screenrecordings/${name} \
-		--codec gif \
 		"$@"
 else 
 	pkill --signal SIGINT wf-recorder

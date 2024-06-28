@@ -250,6 +250,11 @@ bindsym $mod+6 workspace 6
 bindsym $mod+5 workspace 7
 bindsym $mod+4 workspace 8
 
+bindsym $mod+F6 workspace 6
+bindsym $mod+F5 workspace 7
+bindsym $mod+F4 workspace 8
+
+
 # Move focused container to workspace.
 bindsym $mod+Shift+x move container to workspace 1
 bindsym $mod+Shift+v move container to workspace 2
@@ -259,6 +264,10 @@ bindsym $mod+Shift+w move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+5 move container to workspace 7
 bindsym $mod+Shift+4 move container to workspace 8
+
+bindsym $mod+Shift+F6 move container to workspace 6
+bindsym $mod+Shift+F5 move container to workspace 7
+bindsym $mod+Shift+F4 move container to workspace 8
     
 ####################
 ### Layout stuff ###
