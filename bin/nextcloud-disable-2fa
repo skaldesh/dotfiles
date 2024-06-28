@@ -1,0 +1,2 @@
+# Run on de2 as root
+docker exec -u www-data cloud-wahtari php /var/www/html/occ twofactor:disable <user> totp

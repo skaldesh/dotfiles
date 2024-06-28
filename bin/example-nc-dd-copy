@@ -1,0 +1,5 @@
+# Destination
+nc -l -p 1234 | dd of=/dev/sdaX bs=4MiB
+
+# Source
+nc x.x.x.x 1234 </dev/sdbX
