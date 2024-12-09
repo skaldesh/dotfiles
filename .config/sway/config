@@ -341,7 +341,7 @@ mode "screencapture" {
     bindsym w exec screen-ocr
 
 	# Take a screenshot of the current display.
-    bindsym v exec "grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') /home/skaldesh/pictures/screenshots/$(date +'%Y-%m-%d-%H%M%S.png')"
+    bindsym v exec "grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') ~/pictures/screenshots/$(date +'%Y-%m-%d-%H%M%S.png')"
 
 	# Take screen recording of the current display.
     bindsym h exec $screenrecorder
