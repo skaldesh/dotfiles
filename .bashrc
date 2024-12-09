@@ -13,8 +13,6 @@ alias gpc='gopass show -c'
 alias gps='gopass show'
 alias sc='systemctl'
 alias ping8='ping 8.8.8.8'
-alias gotop='gotop --percpu --averagecpu --statusbar'
-alias htop='gotop'
 alias htpasswd='docker run --rm -ti xmartlabs/htpasswd'
 
 # Comand Completion.

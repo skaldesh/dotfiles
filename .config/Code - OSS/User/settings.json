@@ -2,17 +2,11 @@
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
     "editor.detectIndentation": false,
-    "[yaml]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 4,
-        "editor.autoIndent": "advanced"
-    },
-
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
+    "telemetry.telemetryLevel":"off",
     "window.titleBarStyle": "custom",
     "window.menuBarVisibility": "compact",
     "window.zoomLevel": 2,
+    "window.customMenuBarAltFocus": false,
     "go.toolsGopath": "/home/skaldesh/go",
     "go.useLanguageServer": true,
     "go.addTags": {
@@ -51,6 +45,11 @@
             "nonewvars": true,
         }
     },
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.autoIndent": "advanced"
+    },
     "editor.fontSize": 13,
     "search.useIgnoreFiles": false,
     "explorer.confirmDragAndDrop": false,
@@ -65,34 +64,12 @@
         "*.html": "default",
         "*.onnx": "hexEditor.hexedit"
     },
-    "[dart]": {
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        "editor.rulers": [
-            80
-        ],
-        "editor.selectionHighlight": false,
-        "editor.suggest.snippetsPreventQuickSuggestions": false,
-        "editor.suggestSelection": "first",
-        "editor.tabCompletion": "onlySnippets",
-        "editor.wordBasedSuggestions": "off"
-    },
     "editor.wordWrapColumn": 130,
     "editor.wrappingIndent": "deepIndent",
-    "telemetry.telemetryLevel": "off",
-    "zls.warn_style": true,
-    "zls.enable_unused_variable_warnings": true,
-    "zls.enable_snippets": true,
-    "zls.path": "/usr/local/bin/zls",
-    "terminal.integrated.enableMultiLinePasteWarning": false,
-    "redhat.telemetry.enabled": false,
     "go.diagnostic.vulncheck": "Imports",
     "git.openRepositoryInParentFolders": "never",
     "workbench.editor.splitInGroupLayout": "vertical",
     "editor.minimap.enabled": false,
-    "zig.path": "",
-    "zig.zls.path": "/home/skaldesh/.config/Code - OSS/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
-    "zig.initialSetupDone": true,
     "licenser.license": "MIT",
     "licenser.projectName": "Qube",
     "licenser.author": "skaldesh",
