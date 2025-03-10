@@ -249,5 +249,9 @@
     {
         "key": "f9",
         "command": "workbench.action.focusNextGroup"
+    },
+    {
+        "key": "ctrl+v",
+        "command": "-editor.action.clipboardPasteAction"
     }
 ]

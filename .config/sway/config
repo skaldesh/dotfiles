@@ -187,6 +187,9 @@ bindsym $mod+d exec $menu
 # Swayidle is automatically killed, once unlocked.
 bindsym $mod+Ctrl+l exec "$(swayidle -w timeout 10 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' & $swaylock ; pkill swayidle)"
 
+# Suspend the system.
+bindsym $mod+Ctrl+s exec "systemctl suspend"
+
 # Toggle mute output volume.
 bindsym XF86AudioMute exec $toggleMuteOutVol
 # Raise output volume.
