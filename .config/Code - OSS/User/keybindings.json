@@ -253,5 +253,24 @@
     {
         "key": "ctrl+v",
         "command": "-editor.action.clipboardPasteAction"
+    },
+    {
+        "key": "ctrl+t c",
+        "command": "testing.runAtCursor",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+; c",
+        "command": "-testing.runAtCursor",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+t h",
+        "command": "workbench.action.closePanel"
+    },
+    {
+        "key": "ctrl+; ctrl+shift+c",
+        "command": "-testing.coverageAtCursor",
+        "when": "editorTextFocus"
     }
 ]
