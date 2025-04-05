@@ -1,6 +1,7 @@
-{
+[{
 	"layer": "top",
 	"position": "top",
+	"output": ["DP-1"],
 	"fixed-center": true,
 	"spacing": 0,
 	"margin": 0,
@@ -11,11 +12,12 @@
 
 	"modules-left": [
 		"sway/workspaces",
-		"sway/mode"
+		"sway/mode",
+		//"sway/window",
+		"wlr/taskbar",
 	],
 
 	"modules-center": [
-		"tray",
 		"custom/recorder",
 		"privacy"
 	],
@@ -28,6 +30,25 @@
 		"memory",
 		"cpu",
 		"temperature#cpu",
+		"temperature#gpu",
 		"clock"
 	],
-}
+},
+{
+	"layer": "top",
+	"position": "top",
+	"output": ["HDMI-A-1"],
+	"fixed-center": true,
+	"spacing": 0,
+	"margin": 0,
+	"include": [
+		"~/.config/waybar/modules",
+	],
+	"reload_style_on_change": true,
+
+	"modules-left": [
+		"sway/workspaces",
+		"sway/mode",
+	],
+},
+]

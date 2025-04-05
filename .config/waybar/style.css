@@ -1,84 +1,201 @@
 /* Imports */
 @import url("/home/skaldesh/.config/waybar/custom.css");
-
-/* Colors */
-@define-color text-primary      #ffffff;
-@define-color background        rgba(42, 40, 56, 0.65);
-@define-color module-background #605672;
-@define-color warning           #d07300;
-@define-color critical          red;
-@define-color border            rgba(133, 129, 159, 0.75);
-@define-color border-warning    rgba(255, 255, 255, 0.85);
+@import url("/home/skaldesh/.config/waybar/catppuccin_mocha.css");
 
 /* General */
 * {
 	font-size: 14px;
 	font-family: 'Jetbrains Mono';
+	min-height: 0;
 }
 
+/* --- Waybar --- */
 window#waybar {
-	color: @text-primary;
-    background: @background;
+	color: @text;
+    background: rgba(0, 0, 0, 0.1);
+}
+tooltip {
+  	background: shade(@surface1, 0.75);
+  	border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  	color: @text;
 }
 
-/* Modules right */
+
+/* --- Modules right  --- */
 .modules-right .module {
-	margin: 6px 12px 6px 0;
-	padding: 6px 16px;
-	background: @module-background;
-	border: 1px solid @border;
-	border-radius: 9999px;
-
+	background-color: shade(@surface1, 0.75);
+	padding: 0.5rem 1.5rem;
+	margin: 4px;
 }
-#temperature.critical { background: red; }
 
-#battery.warning {
-	background: yellow;
-	color: black;
+/* --- Block 1 --- */
+#clock {
+	border-radius: 99px;
+	margin-left: 8px;
+	color: @rosewater;
 }
-#battery.critical { background: red; }
-#battery.charging.good,
-#battery.charging.warning,
-#battery.charging.critical {
-	background: green;
+
+/* --- Block 2 --- */
+#temperature.gpu {
+	padding-left: 0;
+	border-radius: 0 99px 99px 0;
+	color: @peach;
+	margin-left: 0;
+}
+#temperature.cpu {
+	padding-right: 0;
+	border-radius: 99px 0 0 99px;
+	margin-left: 8px;
+	margin-right: 0;
+	color: @peach;
+}
+
+/* --- Block 3 --- */
+#cpu {
+	border-radius: 99px;
+	margin-left: 8px;
+	color: @green;
+}
+
+/* --- Block 4 --- */
+#memory {
+	padding-left: 0.75rem;
+	border-radius: 0 99px 99px 0;
+	color: @sapphire;
+	margin-left: 0;
+}
+#disk {
+	margin-left: 8px;
+	margin-right: 0;
+	padding-right: 0.75rem;
+	border-radius: 99px 0 0 99px;
+	color: @sapphire;
+}
+
+/* --- Block 5 --- */
+#pulseaudio.out {
+	padding-left: 0.75rem;
+	border-radius: 0 99px 99px 0;
+	color: @mauve;
+	margin-left: 0;
+}
+#pulseaudio.in {
+	color: @mauve;
+	margin-left: 0;
+	margin-right: 0;
+}
+#network.ethernet {
+	margin-left: 8px;
+	margin-right: 0;
+	padding-right: 0.75rem;
+	border-radius: 99px 0 0 99px;
+	color: @mauve;
+}
+
+/* --- Modules center --- */
+#privacy {
+	background: shade(@surface1, 0.75);
+	padding: 0 1rem;
+	border-radius: 99px;
+	border: 0px solid @accent;
+	margin: 4px;
+
+	animation-name: highlight;
+	animation-duration: 4s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+#privacy-item {
 	color: white;
+	padding: 0 1rem;
+}
+#privacy-item:first-child {
+	padding-left: 0.5rem;
+}
+#privacy-item:last-child {
+	padding-right: 0.5rem;
+}
+#custom-recorder {
+	background: shade(@surface1, 0.75);
+	padding: 0 1.5rem;
+	border-radius: 99px;
+	border: 0px solid @red;
+	margin: 4px;
+	margin-right: 8px;
+	color: white;
+
+	animation-name: highlight;
+	animation-duration: 4s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+@keyframes highlight {
+	to { border-width: 2px; }
 }
 
-/* Modules left */
+/* --- Modules left --- */
+#workspaces {
+  	margin: 5px;
+  	background: transparent;
+}
 #workspaces button {
-	background: @module-background;
-	color: @text-primary;
-	margin: 6px 0 6px 6px;
-	border: 1px solid @border;
-	border-radius: 9999px;
+	background-color: shade(@surface1, 0.75);
+	padding: 0.5rem 0.75rem;
+	border-radius: 0;
 	font-weight: 900;
 }
+#workspaces button:first-child {
+	border-radius: 99px 0 0 99px;
+	padding-left: 1.1rem;
+}
+#workspaces button:last-child {
+	border-radius: 0 99px 99px 0;
+	padding-right: 1.1rem;
+}
+#workspaces button:only-child {
+	border-radius: 99px;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
 #workspaces button.focused {
-	background: @warning;
-	border: 1px solid @border-warning;
+	background-color: @blue;
+	color: black;
 }
-#workspaces button:hover {
-	background: @warning;
+#workspaces button:not(.focused):hover {
+	color: @sky;
 }
+
 #mode {
-	margin: 6px 0 6px 6px;
-	padding: 6px 12px;
-	background: @warning;
-	font-weight: bold;
-	border: 1px solid @border-warning;
-	border-radius: 9999px;
+	color: black;
+	background-color: @blue;
+	padding: 0.5rem 1.5rem;
+	margin: 5px;
+	border-radius: 99px;
 }
 
-/* Modules center */
-#privacy-item { 
-	margin: 6px 6px;
-	padding: 6px 8px;
-	border-radius: 6px;
+#taskbar {
+	margin: 5px;
 }
-#privacy-item { background: @warning; }
+#taskbar button {
+	background-color: shade(@surface1, 0.75);
+	padding: 0.75rem;
+	border-radius: 0;
+}
+#taskbar button:first-child {
+	border-radius: 99px 0 0 99px;
+	padding-left: 1.1rem;
+}
+#taskbar button:last-child {
+	border-radius: 0 99px 99px 0;
+	padding-right: 1.1rem;
+}
+#taskbar button:only-child {
+	border-radius: 99px;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
 
-#custom-recorder {
-	padding: 0 10px;
-	color: white;
-	background: red
-}

@@ -269,6 +269,7 @@ bindsym $mod+Shift+F4 move container to workspace 8
 # $mod+b or $mod+v, for horizontal and vertical splits
 # respectively.
 bindsym $mod+b splitt
+bindsym $mod+Ctrl+b split none
 
 # Switch the current container between different layout styles.
 #bindsym $mod+s layout stacking
