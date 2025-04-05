@@ -3,9 +3,11 @@
 	"position": "top",
 	"fixed-center": true,
 	"spacing": 0,
+	"margin": 0,
 	"include": [
 		"~/.config/waybar/modules",
 	],
+	"reload_style_on_change": true,
 
 	"modules-left": [
 		"sway/workspaces",
@@ -19,7 +21,6 @@
 	],
 
 	"modules-right": [
-		"network#wifi",
 		"network#ethernet",
 		"pulseaudio#in",
 		"pulseaudio#out",
@@ -27,7 +28,6 @@
 		"memory",
 		"cpu",
 		"temperature#cpu",
-		"battery",
 		"clock"
 	],
 }

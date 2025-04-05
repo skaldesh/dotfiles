@@ -23,15 +23,15 @@ white = "#d9d8d8"
 yellow = "#ffd204"
 
 [colors.primary]
-background = "#292929"
+background = "#2a2838"
 foreground = "#efefef"
 
 [colors.selection]
-background = "#a81403"
+background = "#d07300"
 text = "CellForeground"
 
 [window]
-opacity = 0.95
+opacity = 0.85
 
 [env]
 TERM = "xterm-256color"
@@ -40,7 +40,7 @@ TERM = "xterm-256color"
 size = 12.0
 
 [font.normal]
-family = "Droid Sans Mono"
+family = "Jetbrains Mono"
 
 [[keyboard.bindings]]
 action = "ClearHistory"

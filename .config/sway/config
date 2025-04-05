@@ -45,7 +45,7 @@ exec swayidle -w before-sleep '$swaylock'
 #################
 
 # Colors.
-set $colPrim "#a81800"
+set $colPrim "#8082cf"
 
 # Mod key. Use Mod1 for Alt.
 set $mod Mod1
@@ -115,16 +115,22 @@ set $swaylock swaylock \
 ########################
  
 # Give each window a border.
-default_border pixel 3
+default_border pixel 2
 
 # Give each window a margin to other windows.
-gaps inner 10
+gaps inner 6
+
+smart_borders on
 
 # Make border around focused view red.
-client.focused $colPrim #285577 #ffffff #ff3416 $colPrim
+#d98f33
+client.focused $colPrim #285577 #ffffff #ffffff $colPrim
 
 # Make border around focused inactive view black.
 client.focused_inactive #333333 #5f676a #ffffff #484e50 #000000
+
+font 'Jetbrains Mono' 12
+titlebar_padding 12 6
 
 # Disable laptop screen if lid is closed.
 bindswitch --locked lid:on output $dlap disable
@@ -151,24 +157,7 @@ output $dext scale 1
 ### Input configuration ###
 ###########################
 
-# Input information: swaymsg -t get_inputs
-
-# Keyboard layout. Default is Neo, fallback is german. Can be toggle by pressing both Ctrl keys.
-input "type:keyboard" {
-    repeat_delay 150
-    repeat_rate 38
-    xkb_layout de,de
-    xkb_variant neo,nodeadkeys
-    xkb_options grp:ctrls_toggle
-}
-
-# All mouse-like devices.
-input "type:pointer" {
-    scroll_factor 2
-}
-
-### Map touch input to correct output.
-input "9589:1:Weida_Hi-Tech_CoolTouch_System" map_to_output HDMI-A-1
+include ./inputs
 
 ##############
 ### Basics ###
