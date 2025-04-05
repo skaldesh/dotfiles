@@ -272,5 +272,15 @@
         "key": "ctrl+; ctrl+shift+c",
         "command": "-testing.coverageAtCursor",
         "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+t a",
+        "command": "testing.runCurrentFile",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+; f",
+        "command": "-testing.runCurrentFile",
+        "when": "editorTextFocus"
     }
 ]
