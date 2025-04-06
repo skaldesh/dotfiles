@@ -70,8 +70,12 @@ tooltip label {
 	color: black;
 }
 #battery.critical {
-	background-color: @red;
-	color: black;
+	background-color: #f00000;
+	color: white;
+}
+#battery.charging {
+	background-color: @base;
+	color: @green;
 }
 
 /* --- Block 4 --- */
