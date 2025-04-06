@@ -25,7 +25,7 @@ tooltip label {
 
 /* --- Modules right  --- */
 .modules-right .module {
-	background-color: shade(@surface1, 0.75);
+	background-color: @base;
 	padding: 0.5rem 1.5rem;
 	margin: 4px;
 }
@@ -96,7 +96,7 @@ tooltip label {
 
 /* --- Modules center --- */
 #privacy {
-	background: shade(@surface1, 0.75);
+	background: @base;
 	padding: 0 1rem;
 	border-radius: 99px;
 	border: 0px solid @accent;
@@ -119,7 +119,7 @@ tooltip label {
 	padding-right: 0.5rem;
 }
 #custom-recorder {
-	background: shade(@surface1, 0.75);
+	background: @base;
 	padding: 0 1.5rem;
 	border-radius: 99px;
 	border: 0px solid @red;
@@ -143,7 +143,7 @@ tooltip label {
   	background: transparent;
 }
 #workspaces button {
-	background-color: shade(@surface1, 0.75);
+	background-color: @base;
 	padding: 0.5rem 0.75rem;
 	border-radius: 0;
 	font-weight: 900;
@@ -162,7 +162,7 @@ tooltip label {
 	padding-right: 1rem;
 }
 #workspaces button.focused {
-	background-color: @blue;
+	background-color: @lavender;
 	color: black;
 }
 #workspaces button:not(.focused):hover {
@@ -181,7 +181,7 @@ tooltip label {
 	margin: 5px;
 }
 #taskbar button {
-	background-color: shade(@surface1, 0.75);
+	background-color: @base;
 	padding: 0.75rem;
 	border-radius: 0;
 }
@@ -198,4 +198,3 @@ tooltip label {
 	padding-left: 1rem;
 	padding-right: 1rem;
 }
-

@@ -2,21 +2,41 @@
 /* See wofi(5) and wofi(7) for more information. */
 
 * {
-	font-family: "Droid Sans Mono";
-	font-size: 11pt;
+	font-family: "Jetbrains Mono";
+	font-size: 12pt;
+}
+
+#window {
+	background: transparent;
 }
 
 #outer-box {
-	background: --wofi-color2;
+	background-color: --wofi-color0;
+	border-radius: 16px;
+	padding: 1rem;
 }
 
 #input {
-	background: --wofi-color3;
-	border: 2px solid --wofi-color0;
+	background-color: --wofi-color1;
+	padding: 0.5rem;
+	border-radius: 12px;
+	margin-bottom: 32px;
 }
 
+#entry {
+	padding: 0.75rem;
+	border-radius: 12px;
+}
 #entry:selected {
-	background: --wofi-color0;
+	background-color: --wofi-color1;
+	outline: none;
+}
+#entry:selected:focus {
+	background-color: --wofi-color2;
+}
+#entry image {
+	margin-right: 16px;
+	margin-left: 4px;
 }
 
 #text:selected {

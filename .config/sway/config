@@ -4,6 +4,39 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+##############
+### Colors ###
+##############
+# From catppuccin_mocha.css
+
+set $color_rosewater "#f5e0dc"
+set $color_flamingo  "#f2cdcd"
+set $color_pink      "#f5c2e7"
+set $color_mauve     "#cba6f7"
+set $color_red       "#f38ba8"
+set $color_maroon    "#eba0ac"
+set $color_peach     "#fab387"
+set $color_yellow    "#f9e2af"
+set $color_green     "#a6e3a1"
+set $color_teal      "#94e2d5"
+set $color_sky       "#89dceb"
+set $color_sapphire  "#74c7ec"
+set $color_blue      "#89b4fa"
+set $color_lavender  "#b4befe"
+set $color_text      "#cdd6f4"
+set $color_subtext1  "#bac2de"
+set $color_subtext0  "#a6adc8"
+set $color_overlay2  "#9399b2"
+set $color_overlay1  "#7f849c"
+set $color_overlay0  "#6c7086"
+set $color_surface2  "#585b70"
+set $color_surface1  "#45475a"
+set $color_surface0  "#313244"
+set $color_base      "#1e1e2e"
+set $color_mantle    "#181825"
+set $color_crust     "#11111b"
+set $color_text_inv  "#000000"
+
 #################
 ### Autostart ###
 #################
@@ -24,11 +57,7 @@ exec_always {
 
 # Enable notifications.
 exec_always {
-	mako \
-		--ignore-timeout 1 \
-		--default-timeout 5000 \
-		--background-color $colPrim \
-		--border-color $colPrim
+	mako --config ~/.config/mako/config
 }
 
 # Needed for xdg-deskop-portal-wlr.
@@ -43,9 +72,6 @@ exec swayidle -w before-sleep '$swaylock'
 #################
 ### Variables ###
 #################
-
-# Colors.
-set $colPrim "#8082cf"
 
 # Mod key. Use Mod1 for Alt.
 set $mod Mod1
@@ -93,13 +119,7 @@ set $incLapBright brightnessctl set +10%
 set $decLapBright brightnessctl set 10%-
 	
 # Toggle bluetooth.
-#set $toggleBluetooth ""
-
-# Laptop display identifier.
-set $dlap eDP-1
-
-# External display HDMI identifier.
-set $dext DP-3
+set $toggleBluetooth ""
 
 # Swaylock.
 set $swaylock swaylock \
@@ -113,51 +133,67 @@ set $swaylock swaylock \
 ########################
 ### Default Settings ###
 ########################
- 
-# Give each window a border.
-default_border pixel 2
-
-# Give each window a margin to other windows.
-gaps inner 6
-
-smart_borders on
-
-# Make border around focused view red.
-#d98f33
-client.focused $colPrim #285577 #ffffff #ffffff $colPrim
-
-# Make border around focused inactive view black.
-client.focused_inactive #333333 #5f676a #ffffff #484e50 #000000
 
 font 'Jetbrains Mono' 12
-titlebar_padding 12 6
+gaps inner 4
+titlebar_padding 6 3
+titlebar_border_thickness 2
 
-# Disable laptop screen if lid is closed.
-bindswitch --locked lid:on output $dlap disable
-bindswitch --locked lid:off output $dlap enable
+# Borders (border, background, text, indicator, child_border).
+client.unfocused        #000000          $color_base     $color_subtext0
+client.focused          $color_lavender  $color_lavender $color_text_inv #ffffff         $color_lavender
+client.focused_inactive #000000          $color_surface1 $color_subtext1 $color_surface1 #000000
+default_border normal 2
+smart_borders on
 
 ############################
 ### Output configuration ###
 ############################
-
 # Output information: swaymsg -t get_outputs
-
-# Background wallpaper.
-# Should be configured in .config/sway/config.d/
-# E.g.: output * bg /path/to/image.jpg fill
-
-# Display arrangement.
-# Should be configured in .config/sway/config.d/
 # E.g.: output $dlap position 1920 1080 mode 1920x1080@60Hz scale 1
-	
-### External display.
-output $dext scale 1
+
+# Wallpaper
+output * background ~/pictures/wallpapers/cartoon_nature_dark.jpg fill
+
+# Disable laptop screen if lid is closed.
+set $dlap eDP-1
+bindswitch --locked lid:on  output $dlap disable
+bindswitch --locked lid:off output $dlap enable
+
+# Mode
+mode "output" {
+	# Move the current window + focus to the output in the direction.
+	bindsym $left  move to output left;  focus output left
+	bindsym $up    move to output up;    focus output up
+	bindsym $right move to output right; focus output right
+	bindsym $down  move to output down;  focus output down
+
+	# Return to default mode.
+	bindsym Backspace mode "default"
+}
+bindsym $mod+m mode "output"
+
 
 ###########################
 ### Input configuration ###
 ###########################
+# Input information: swaymsg -t get_inputs
 
-include ./inputs
+# Keyboard layout. Default is Neo, fallback is german. 
+# Can be toggle by pressing both Ctrl keys.
+input "type:keyboard" {
+    repeat_delay 150
+    repeat_rate 38
+    xkb_layout de,de
+    xkb_variant neo,nodeadkeys
+    xkb_options grp:ctrls_toggle
+}
+
+# All mouse-like devices, increase scrolling speed.
+input "type:pointer" {
+    scroll_factor 2
+}
+
 
 ##############
 ### Basics ###

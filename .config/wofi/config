@@ -3,31 +3,22 @@
 ### See wofi(5) for more information.
 
 style=/home/skaldesh/.config/wofi/style.css
-
 color=/home/skaldesh/.config/wofi/colors
 
 show=drun
-
-width=15%
-
-height=30%
-
-xoffset=-20
-
-yoffset=2
-
-prompt=Search...
-
 term=termite
 
+width=15%
+lines=10
+xoffset=-550
+yoffset=0
+location=3
+layer=overlay
+
+prompt=Search...
 hide_scroll=true
+allow_images=true
 
 insensitive=true
-
 matching=contains
-
-location=3
-
 dynamic_lines=false
-
-layer=overlay

@@ -23,15 +23,16 @@ white = "#d9d8d8"
 yellow = "#ffd204"
 
 [colors.primary]
-background = "#2a2838"
-foreground = "#efefef"
+background = "#1e1e2e"
+foreground = "#e5e5f0"
 
 [colors.selection]
-background = "#d07300"
-text = "CellForeground"
+background = "#d07355"
+text = "#ffffff"
 
 [window]
-opacity = 0.85
+padding = { x = 0, y = 0 }
+opacity = 0.9
 
 [env]
 TERM = "xterm-256color"

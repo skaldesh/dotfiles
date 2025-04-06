@@ -49,6 +49,7 @@
 	"modules-left": [
 		"sway/workspaces",
 		"sway/mode",
+		"wlr/taskbar",
 	],
 },
 ]
