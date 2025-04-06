@@ -153,7 +153,7 @@ smart_borders on
 # E.g.: output $dlap position 1920 1080 mode 1920x1080@60Hz scale 1
 
 # Wallpaper
-output * background ~/pictures/wallpapers/cartoon_nature_dark.jpg fill
+output * background cartoon_nature_dark.jpg fill
 
 # Disable laptop screen if lid is closed.
 set $dlap eDP-1
