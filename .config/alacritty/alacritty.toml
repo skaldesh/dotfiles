@@ -31,7 +31,7 @@ background = "#d07355"
 text = "#ffffff"
 
 [window]
-padding = { x = 0, y = 0 }
+padding = { x = 4, y = 0 }
 opacity = 0.9
 
 [env]
