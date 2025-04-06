@@ -6,7 +6,7 @@ style=/home/skaldesh/.config/wofi/style.css
 color=/home/skaldesh/.config/wofi/colors
 
 show=drun
-term=termite
+term=alacritty
 
 width=15%
 lines=10
