@@ -1,5 +1,7 @@
 .config/sway/config.d/**
 !.config/sway/config.d/.gitkeep
 
+.config/waybar/custom.css
+
 bin/cjdns-ext
 bin/ledger-live

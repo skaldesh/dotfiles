@@ -1,5 +1,4 @@
 /* Imports */
-@import url("/home/skaldesh/.config/waybar/custom.css");
 @import url("/home/skaldesh/.config/waybar/catppuccin_mocha.css");
 
 /* General */
@@ -223,3 +222,6 @@ tooltip label {
 	padding-left: 1rem;
 	padding-right: 1rem;
 }
+
+/* Import custom, device local styles */
+@import url("/home/skaldesh/.config/waybar/custom.css");

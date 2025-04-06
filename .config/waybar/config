@@ -23,12 +23,14 @@
 	],
 
 	"modules-right": [
+		"network#wifi",
 		"network#ethernet",
 		"pulseaudio#in",
 		"pulseaudio#out",
 		"disk",
 		"memory",
 		"cpu",
+		"battery",
 		"temperature#cpu",
 		"temperature#gpu",
 		"clock"
