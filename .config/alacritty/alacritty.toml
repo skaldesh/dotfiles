@@ -41,7 +41,7 @@ TERM = "xterm-256color"
 size = 12.0
 
 [font.normal]
-family = "Jetbrains Mono"
+family = "JetBrainsMonoNerdFont"
 
 [[keyboard.bindings]]
 action = "ClearHistory"

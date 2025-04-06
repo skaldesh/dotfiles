@@ -5,7 +5,7 @@
 /* General */
 * {
 	font-size: 14px;
-	font-family: 'Jetbrains Mono';
+	font-family: 'JetbrainsMonoNerdFont';
 	min-height: 0;
 }
 
@@ -76,22 +76,31 @@ tooltip label {
 
 /* --- Block 5 --- */
 #pulseaudio.out {
-	padding-left: 0.75rem;
-	border-radius: 0 99px 99px 0;
 	color: @mauve;
 	margin-left: 0;
+	border-radius: 0 99px 99px 0;
+	padding-left: 1rem;
 }
 #pulseaudio.in {
 	color: @mauve;
 	margin-left: 0;
 	margin-right: 0;
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
 }
 #network.ethernet {
+	color: @mauve;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
+}
+#network.wifi {
+	color: @mauve;
 	margin-left: 8px;
 	margin-right: 0;
-	padding-right: 0.75rem;
 	border-radius: 99px 0 0 99px;
-	color: @mauve;
+	padding-right: 0.75rem;
 }
 
 /* --- Modules center --- */

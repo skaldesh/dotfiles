@@ -37,6 +37,43 @@
 {
 	"layer": "top",
 	"position": "top",
+	"output": ["eDP-1"],
+	"spacing": 0,
+	"margin": 0,
+	"fixed-center": false,
+	"include": [
+		"~/.config/waybar/modules",
+	],
+	"reload_style_on_change": true,
+
+	"modules-left": [
+		"sway/workspaces",
+		"sway/mode",
+		//"sway/window",
+		"wlr/taskbar",
+	],
+
+	"modules-center": [
+		"custom/recorder",
+		"privacy"
+	],
+
+	"modules-right": [
+		"network#wifi",
+		"network#ethernet",
+		"pulseaudio#in",
+		"pulseaudio#out",
+		"disk",
+		"memory",
+		"cpu",
+		"temperature#cpu",
+		"temperature#gpu",
+		"clock"
+	],
+},
+{
+	"layer": "top",
+	"position": "top",
 	"output": ["HDMI-A-1"],
 	"fixed-center": true,
 	"spacing": 0,

@@ -8,11 +8,11 @@ color=/home/skaldesh/.config/wofi/colors
 show=drun
 term=alacritty
 
-width=15%
+width=450
 lines=10
-xoffset=-550
+xoffset=0
 yoffset=0
-location=3
+location=2
 layer=overlay
 
 prompt=Search...

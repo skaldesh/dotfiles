@@ -107,28 +107,26 @@
 
    	"memory": {
 		"interval": 2,
-		"format": " {percentage:02}%"
+		"format": " {percentage:02}%"
 	},
 
 	"network#ethernet": {
 		"interface": "enp*",
 		"interval": 10,
-		"format-ethernet": "",
-		"format-disconnected": " x",
+		"format-ethernet": "󰌗",
+		"format-disconnected": "󰌗 x",
 		"tooltip": true,
-		"tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}/{cidr}\nGW: {gwaddr}",
+		"tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}/{cidr}\n {bandwidthUpBytes} |  {bandwidthDownBytes}",
 		"tooltip-format-disconnected": "Disconnected",
-		"max-length": 50
 	},
 
 	"network#wifi": {
-		"interface": "w*",
+		"interface": "wlp*",
 		"interval": 10,
-		"format-wifi": " {essid} ({signalStrength}%)",
-		"format-disconnected": " x",
-		"tooltip-format-wifi": "{essid} {ipaddr} ({signalStrength}%)",
+		"format-wifi": "  {signalStrength}%",
+		"format-disconnected": "󰖪",
+		"tooltip-format-wifi": "{essid}    {signalStrength}%\nIP: {ipaddr}\n {bandwidthUpBytes} |  {bandwidthDownBytes}",
 		"tooltip-format-disconnected": "Disconnected",
-		"max-length": 50
 	},
 
 	"privacy": {
