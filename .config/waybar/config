@@ -66,6 +66,7 @@
 		"disk",
 		"memory",
 		"cpu",
+		"battery",
 		"temperature#cpu",
 		"temperature#gpu",
 		"clock"

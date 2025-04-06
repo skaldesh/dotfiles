@@ -54,9 +54,25 @@ tooltip label {
 
 /* --- Block 3 --- */
 #cpu {
-	border-radius: 99px;
-	margin-left: 8px;
 	color: @green;
+	padding-right: 0.5rem;
+	border-radius: 99px 0 0 99px;
+	margin-left: 8px;
+	margin-right: 0;
+}
+#battery {
+	color: @green;	
+	padding-left: 0.75rem;
+	border-radius: 0 99px 99px 0;
+	margin-left: 0;
+}
+#battery.warning {
+	background-color: @yellow;
+	color: black;
+}
+#battery.critical {
+	background-color: @red;
+	color: black;
 }
 
 /* --- Block 4 --- */
