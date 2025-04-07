@@ -1,4 +1,6 @@
-max-history=5
+outer-margin=16
+max-history=10
+max-visible=5
 sort=-time
 font=JetbrainsMono 12
 background-color=#1e1e2e
@@ -13,4 +15,4 @@ border-radius=8
 icons=1
 default-timeout=15000
 layer=overlay
-anchor=top-center
+anchor=top-right

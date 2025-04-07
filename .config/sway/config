@@ -168,6 +168,18 @@ mode "output" {
 	bindsym $right move to output right; focus output right
 	bindsym $down  move to output down;  focus output down
 
+	# Move the current workspace + focus to the output in the direction.
+	bindsym Shift+$left  move workspace to output left;  focus output left
+	bindsym Shift+$up    move workspace to output up;    focus output up
+	bindsym Shift+$right move workspace to output right; focus output right
+	bindsym Shift+$down  move workspace to output down;  focus output down
+
+	# Disable the currently focused output.
+	bindsym v output "-" disable
+
+	# Enable all outputs.
+	bindsym c output "*" enable
+
 	# Return to default mode.
 	bindsym Backspace mode "default"
 }

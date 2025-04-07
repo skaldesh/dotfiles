@@ -4,6 +4,7 @@
 /* General */
 * {
 	font-size: 14px;
+	font-weight: 600;
 	font-family: 'JetbrainsMonoNerdFont';
 	min-height: 0;
 }
