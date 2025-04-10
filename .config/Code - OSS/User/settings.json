@@ -79,4 +79,5 @@
     "explorer.confirmDelete": false,
     "workbench.iconTheme": "simple-icons",
     "git.ignoreLimitWarning": true,
+    "editor.lineHeight": 1.45,
 }
