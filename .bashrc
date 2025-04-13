@@ -78,4 +78,4 @@ export MOZ_ENABLE_WAYLAND=1
 #export MOZ_LOG="PlatformDecoderModule:5"
 
 # Flatpak
-export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:/home/skaldesh/.local/share/flatpak/exports/share
+#export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:/home/skaldesh/.local/share/flatpak/exports/share
