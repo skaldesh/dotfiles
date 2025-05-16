@@ -11,7 +11,6 @@ linux-firmware
 linux-lts
 micro
 networkmanager
-nvidia-lts
 openssh
 # Prompt for authentication
 polkit-gnome
@@ -80,6 +79,10 @@ ntfs-3g
 pcmanfm-gtk3
 # Automount USB drives
 udisks2
+
+### NVIDIA
+nvidia-lts
+nvidia-container-toolkit
 
 ### Password Manager
 gopass
