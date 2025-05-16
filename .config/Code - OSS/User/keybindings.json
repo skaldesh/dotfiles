@@ -265,10 +265,6 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+t h",
-        "command": "workbench.action.closePanel"
-    },
-    {
         "key": "ctrl+; ctrl+shift+c",
         "command": "-testing.coverageAtCursor",
         "when": "editorTextFocus"

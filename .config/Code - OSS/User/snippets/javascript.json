@@ -19,5 +19,12 @@
             "console.log(\"DEBUG:$1\", $2)"
         ],
         "description": "Log a debug message to console"
+    },
+    "Debug console log json": {
+        "prefix": "debugj",
+        "body": [
+            "console.log(\"DEBUG:$1\", JSON.stringify($2))"
+        ],
+        "description": "Log a json stringified object as debug message to console"
     }
 }
