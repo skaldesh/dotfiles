@@ -164,7 +164,7 @@
 	"pulseaudio#out": {
 		"format": "{icon} {volume:02}%",
 		"format-bluetooth": "{icon} {volume:02}% ",
-		"format-muted": "",
+		"format-muted": "",
 		"format-icons": {
 			"headset": "",
 			"default": [
