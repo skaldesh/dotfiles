@@ -67,7 +67,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 exec gnome-keyring-daemon --start --components=secrets
 
 # Enable AppArmor notifications.
-exec aa-notify --poll --since-days 1 --wait 60 --file /var/log/audit/audit.log
+#exec aa-notify --poll --since-days 1 --wait 60 --file /var/log/audit/audit.log
 
 # Start swayidle to lock the screen before suspend.
 exec swayidle -w before-sleep '$swaylock'

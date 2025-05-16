@@ -1,3 +1,6 @@
+.config/Code - OSS
+!.config/Code - OSS/User/settings.json
+
 .config/sway/config.d/**
 !.config/sway/config.d/.gitkeep
 

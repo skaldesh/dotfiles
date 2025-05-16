@@ -111,7 +111,7 @@
 	},
 
 	"network#ethernet": {
-		"interface": "enp*",
+		"interface": "en*",
 		"interval": 10,
 		"format-ethernet": "󰌗",
 		"format-disconnected": "󰌗 x",
@@ -201,6 +201,11 @@
 		"critical-threshold": 80,
 		"interval": 2,
 		"format": "{temperatureC:02}°C)"
+	},
+
+	"custom/gputemp": {
+		"exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv -l 5",
+		"format": "{text}°C)"
 	},
 	
 	"tray": {

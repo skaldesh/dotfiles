@@ -15,6 +15,15 @@ alias sc='systemctl'
 alias ping8='ping 8.8.8.8'
 alias htpasswd='docker run --rm -ti xmartlabs/htpasswd'
 
+# include the go tools
+export PATH=$PATH:/usr/local/go/bin
+# include home bin folder to path variable
+export PATH=$PATH:$HOME/bin
+# include go path bin
+export PATH=$PATH:$GOPATH/bin
+# include Qt tools
+export PATH=$PATH:/usr/lib/qt6/bin
+
 # Comand Completion.
 # Complete also commands and file names.
 complete -cf sudo
@@ -53,15 +62,6 @@ export GOPATH=$HOME/go
 export GOPRIVATE="git.wahtari.m"
 export GOBIN=$GOPATH/bin
 export GOPROXY="https://gomods.wahtari.m"
-
-# include the go tools
-export PATH=$PATH:/usr/local/go/bin
-# include home bin folder to path variable
-export PATH=$PATH:$HOME/bin
-# include go path bin
-export PATH=$PATH:$GOPATH/bin:
-# include Qt tools
-export PATH=$PATH:/usr/lib/qt6/bin
 
 # needed for Qt when using go1.10 or newer
 export CGO_CXXFLAGS_ALLOW=".*" 
