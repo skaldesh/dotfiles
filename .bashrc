@@ -79,3 +79,6 @@ export MOZ_ENABLE_WAYLAND=1
 
 # Flatpak
 #export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:/home/skaldesh/.local/share/flatpak/exports/share
+
+# nline/docker
+export NLINE_DOCKER_SSH_KEYDIR="/home/skaldesh/.ssh/work"
