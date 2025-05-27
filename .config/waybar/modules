@@ -114,7 +114,7 @@
 		"interface": "enp*",
 		"interval": 10,
 		"format-ethernet": "󰌗",
-		"format-disconnected": "󰌗 x",
+		"format-disconnected": "󰲜",
 		"tooltip": true,
 		"tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}/{cidr}\n {bandwidthUpBytes} |  {bandwidthDownBytes}",
 		"tooltip-format-disconnected": "Disconnected",
@@ -155,7 +155,7 @@
 	"pulseaudio#in": {
 		"format": "{format_source}",
 		"format-source": " {volume:02}%",
-		"format-bluetooth": "{icon} {volume:02}%",
+		"format-bluetooth": "{icon} {volume:02}% ",
 		"format-source-muted": "",
 		"scroll-step": 5,
 		"on-click": "pavucontrol"
@@ -164,7 +164,7 @@
 	"pulseaudio#out": {
 		"format": "{icon} {volume:02}%",
 		"format-bluetooth": "{icon} {volume:02}% ",
-		"format-muted": "",
+		"format-muted": "",
 		"format-icons": {
 			"headset": "",
 			"default": [

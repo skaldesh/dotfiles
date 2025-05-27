@@ -80,4 +80,7 @@
     "workbench.iconTheme": "simple-icons",
     "git.ignoreLimitWarning": true,
     "editor.lineHeight": 1.45,
+    "files.associations": {
+        "*.tmpl": "html"
+    },
 }

@@ -76,6 +76,3 @@ export BEMENU_BACKEND=wayland
 # Enable wayland for firefox.
 export MOZ_ENABLE_WAYLAND=1
 #export MOZ_LOG="PlatformDecoderModule:5"
-
-# Flatpak
-export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:/home/skaldesh/.local/share/flatpak/exports/share
