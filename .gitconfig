@@ -36,6 +36,7 @@
 	sm = submodule
 	smu = submodule update
 	bb = !git for-each-ref --color --sort=-committerdate --format=$'%(color:red)%(ahead-behind:HEAD)\t%(color:blue)%(refname:short)\t%(color:yellow)%(committerdate:relative)\t%(color:default)%(describe)' refs/heads/ --no-merged | sed 's/ /\t/' | column --separator=$'\t' --table --table-columns='Ahead,Behind,Branch Name,Last Commit,Description'
+	cuen = config user.email sebastian.borchers@nline.ai
 [core]
 	editor = micro
 [http]

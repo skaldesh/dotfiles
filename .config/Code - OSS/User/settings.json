@@ -83,4 +83,5 @@
     "files.associations": {
         "*.tmpl": "html"
     },
+    "workbench.colorTheme": "Catppuccin Mocha",
 }

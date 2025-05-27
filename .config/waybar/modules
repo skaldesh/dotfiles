@@ -111,7 +111,7 @@
 	},
 
 	"network#ethernet": {
-		"interface": "enp*",
+		"interface": "en*",
 		"interval": 10,
 		"format-ethernet": "󰌗",
 		"format-disconnected": "󰲜",
@@ -164,7 +164,7 @@
 	"pulseaudio#out": {
 		"format": "{icon} {volume:02}%",
 		"format-bluetooth": "{icon} {volume:02}% ",
-		"format-muted": "",
+		"format-muted": "",
 		"format-icons": {
 			"headset": "",
 			"default": [
@@ -201,6 +201,11 @@
 		"critical-threshold": 80,
 		"interval": 2,
 		"format": "{temperatureC:02}°C)"
+	},
+
+	"custom/gputemp": {
+		"exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv -l 5",
+		"format": "{text}°C)"
 	},
 	
 	"tray": {

@@ -63,8 +63,11 @@ exec_always {
 # Needed for xdg-deskop-portal-wlr.
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
+# GNOME keyring.
+exec gnome-keyring-daemon --start --components=secrets
+
 # Enable AppArmor notifications.
-exec aa-notify --poll --since-days 1 --wait 60 --file /var/log/audit/audit.log
+#exec aa-notify --poll --since-days 1 --wait 60 --file /var/log/audit/audit.log
 
 # Start swayidle to lock the screen before suspend.
 exec swayidle -w before-sleep '$swaylock'
@@ -124,7 +127,7 @@ set $toggleBluetooth ""
 # Swaylock.
 set $swaylock swaylock \
 	--ignore-empty-password \
-	--image /home/skaldesh/pictures/wallpapers/golang.png \
+	--image /home/skaldesh/dotfiles/imgs/golang_catppuccin_mocha.png \
 	--scaling fit \
 	--show-failed-attempts \
 	--show-keyboard-layout \
