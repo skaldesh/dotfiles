@@ -7,7 +7,7 @@
 
 # start sway on tty1
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-	export WLR_DRM_DEVICES=/dev/dri/card1
+	#export WLR_DRM_DEVICES=/dev/dri/card1
 	exec sway
 	DATETIME=$(date +"%Y-%m-%d-%H-%M-%S")
 	#exec sway --debug 2> "${HOME}/sway-${DATETIME}.log"
